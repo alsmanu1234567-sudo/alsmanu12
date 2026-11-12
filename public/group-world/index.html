@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1320">
+  <title>عالم المجموعات</title>
+  <link rel="stylesheet" href="/group-world/styles.css">
+  <script defer src="/group-world/app.js"></script>
+  <script defer src="/group-world/responsive-nav.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/webapp" aria-label="العودة للوحة الرئيسية">
+        <span class="brand-mark">ع</span>
+        <span><strong>عالم المجموعات</strong><small>اقتصاد وتفاعل WhatsApp</small></span>
+      </a>
+      <div class="connection-badge" id="connectionStatus"><i></i><span>جارٍ الاتصال</span></div>
+      <button class="icon-button nav-toggle" id="navToggle" type="button" aria-label="فتح قائمة الأقسام" aria-controls="dashboardSidebar" aria-expanded="false">☰</button>
+      <button class="icon-button" id="reloadButton" type="button" aria-label="تحديث البيانات">↻</button>
+    </header>
+
+    <section class="group-toolbar" aria-label="اختيار المجموعة">
+      <label>رقم واتساب
+        <select id="phoneSelect"><option value="">تحميل الأرقام…</option></select>
+      </label>
+      <label class="group-picker">المجموعة
+        <select id="groupSelect"><option value="">اختر المجموعة</option></select>
+      </label>
+      <label>معرّف يدوي
+        <input id="manualGroupId" type="text" placeholder="120…@g.us" dir="ltr">
+      </label>
+      <button class="button button-secondary" id="openGroupButton" type="button">فتح المجموعة</button>
+      <button class="button button-secondary" id="refreshGroupsButton" type="button">تحديث المجموعات</button>
+      <button class="button button-primary" id="activateButton" type="button" hidden>تفعيل عالم المجموعة</button>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar" id="dashboardSidebar">
+        <div class="sidebar-label">إدارة العالم</div>
+        <nav id="mainNav" class="main-nav" aria-label="أقسام عالم المجموعات">
+          <button class="nav-item active" data-page="overview"><span>▦</span> نظرة عامة</button>
+          <button class="nav-item" data-page="groups"><span>◉</span> المجموعات والوحدات</button>
+          <button class="nav-item" data-page="points"><span>◈</span> إعدادات النقاط</button>
+          <button class="nav-item" data-page="members"><span>♙</span> الأعضاء والمحافظ</button>
+          <button class="nav-item" data-page="ranks"><span>♛</span> الرتب والصدارة</button>
+          <button class="nav-item" data-page="pets"><span>🐾</span> الحيوانات</button>
+          <button class="nav-item" data-page="store"><span>▣</span> المتاجر والمقتنيات</button>
+          <button class="nav-item" data-page="tasks"><span>✓</span> المهام والإنجازات</button>
+          <button class="nav-item" data-page="social"><span>⚑</span> التحديات والفرق</button>
+          <button class="nav-item" data-page="games"><span>🎮</span> الألعاب والتوزيع</button>
+          <button class="nav-item" data-page="season"><span>✦</span> المواسم والفعاليات</button>
+          <button class="nav-item" data-page="messages"><span>▤</span> الرسائل والمعاينة</button>
+          <button class="nav-item" data-page="commands"><span>.</span> إدارة الأوامر</button>
+          <button class="nav-item" data-page="admins"><span>♧</span> المشرفون والصلاحيات</button>
+          <button class="nav-item" data-page="slots"><span>☷</span> القائمة الثابتة</button>
+          <button class="nav-item" data-page="logs"><span>≡</span> سجلات العمليات</button>
+          <button class="nav-item" data-page="reports"><span>▥</span> التقارير والرسوم</button>
+          <button class="nav-item" data-page="settings"><span>⚙</span> النسخ الاحتياطي والإعدادات</button>
+        </nav>
+        <div class="sidebar-foot">بيانات مستقلة لكل مجموعة</div>
+      </aside>
+
+      <main class="content">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow" id="selectedGroupName">لم يتم اختيار مجموعة</div>
+            <h1 id="pageTitle">نظرة عامة</h1>
+          </div>
+          <span class="page-date" id="pageDate"></span>
+        </div>
+        <div id="notice" class="notice" role="status" hidden></div>
+        <div id="workspace" aria-live="polite">
+          <div class="loading-card">جارٍ تحميل بيانات المجموعة…</div>
+        </div>
+        <footer class="page-footer">عالم المجموعات · يعمل على البيانات المحفوظة للمجموعة المحددة</footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
